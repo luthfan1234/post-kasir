@@ -14,11 +14,10 @@ class SupplierSeeder extends Seeder
      */
     public function run(): void
     {
-
-        $faker = Faker::create();
+        $faker = Faker::create('id_ID'); // Indonesian Localization
         for ($i = 0; $i < 10; $i++) {
             Supplier::create([
-                'name' => $faker->name(),
+                'name' => $faker->company(), // Suppliers are usually companies
                 'phone' => $faker->unique()->phoneNumber(),
                 'address' => $faker->address(),
             ]);

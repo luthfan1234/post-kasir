@@ -14,8 +14,7 @@ class CustomerSeeder extends Seeder
      */
     public function run(): void
     {
-
-        $faker = Faker::create();
+        $faker = Faker::create('id_ID'); // Indonesian Localization
         for ($i = 0; $i < 10; $i++) {
             Customer::create([
                 'name' => $faker->name(),

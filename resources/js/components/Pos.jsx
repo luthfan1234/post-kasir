@@ -152,15 +152,19 @@ export default function Pos() {
             return;
         }
         Swal.fire({
-            title: "Are you sure you want to delete Cart?",
-            showDenyButton: true,
-            confirmButtonText: "Yes",
-            denyButtonText: "No",
+            title: "Clear Cart?",
+            text: "Are you sure you want to delete all items in the cart?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, clear it",
+            cancelButtonText: "No, keep it",
+            confirmButtonColor: "#ef4444", // Red for destructive
+            cancelButtonColor: "#f1f5f9",
+            reverseButtons: true,
             customClass: {
-                actions: "my-actions",
-                cancelButton: "order-1 right-gap",
-                confirmButton: "order-2",
-                denyButton: "order-3",
+                popup: 'modern-swal-popup',
+                title: 'modern-swal-title',
+                htmlContainer: 'modern-swal-content'
             },
         }).then((result) => {
             if (result.isConfirmed) {
@@ -189,15 +193,19 @@ export default function Pos() {
             return;
         }
         Swal.fire({
-            title: `Are you sure you want to complete this order? <br>Due: ${due}`,
-            showDenyButton: true,
-            confirmButtonText: "Yes",
-            denyButtonText: "No",
+            title: "Complete Order?",
+            html: `Are you sure you want to finish this transaction?<br><b class="text-primary mt-2 d-inline-block">Due Amount: ${due}</b>`,
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Yes, Complete Order",
+            cancelButtonText: "Review Order",
+            confirmButtonColor: "#0ea5e9",
+            cancelButtonColor: "#f1f5f9",
+            reverseButtons: true,
             customClass: {
-                actions: "my-actions",
-                cancelButton: "order-1 right-gap",
-                confirmButton: "order-2",
-                denyButton: "order-3",
+                popup: 'modern-swal-popup',
+                title: 'modern-swal-title',
+                htmlContainer: 'modern-swal-content'
             },
         }).then((result) => {
             if (result.isConfirmed) {
@@ -432,7 +440,7 @@ export default function Pos() {
                                         >
                                             <div className="text-center">
                                                 <img
-                                                    src={`${fullDomainWithPort}/storage/${product.image}`}
+                                                    src={product.image.startsWith('http') ? product.image : `${fullDomainWithPort}/storage/${product.image}`}
                                                     alt={product.name}
                                                     className="mr-2 img-thumb"
                                                     onError={(e) => {

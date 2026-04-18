@@ -115,7 +115,7 @@ if (!function_exists('nullImg')) {
 if (!function_exists('currency')) {
     function currency()
     {
-        return Cache::remember('default_currency', 60 * 24, function () {
+        return Cache::remember('default_currency', 60, function () { // Fixed: Reduced to 1 minute for better reactivity
             return Currency::where('active', true)->first();
         });
     }

@@ -39,15 +39,19 @@ export default function Cart({ carts, setCartUpdated, cartUpdated }) {
     }
     function destroy(id) {
         Swal.fire({
-            title: "Are you sure you want to delete this item?",
-            showDenyButton: true,
-            confirmButtonText: "Yes",
-            denyButtonText: "No",
+            title: "Remove Item?",
+            text: "Are you sure you want to remove this item from your cart?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Yes, remove",
+            cancelButtonText: "Cancel",
+            confirmButtonColor: "#ef4444",
+            cancelButtonColor: "#f1f5f9",
+            reverseButtons: true,
             customClass: {
-                actions: "my-actions",
-                cancelButton: "order-1 right-gap",
-                confirmButton: "order-2",
-                denyButton: "order-3",
+                popup: 'modern-swal-popup',
+                title: 'modern-swal-title',
+                htmlContainer: 'modern-swal-content'
             },
         }).then((result) => {
             if (result.isConfirmed) {
@@ -72,74 +76,63 @@ export default function Cart({ carts, setCartUpdated, cartUpdated }) {
     return (
         <>
             <div className="user-cart">
-                <div className="card">
-                    <div className="card-body">
-                        <div className="responsive-table">
-                            <table className="table table-striped">
-                                <thead>
-                                    <tr className="text-center">
-                                        <th>Name</th>
-                                        <th>Quantity</th>
-                                        <th></th>
-                                        <th>Price</th>
-                                        <th>Total</th>
+                <div className="card shadow-none border-0 overflow-hidden" style={{ borderRadius: '16px' }}>
+                    <div className="card-body p-0">
+                        <div className="table-responsive">
+                            <table className="table mb-0">
+                                <thead className="bg-light">
+                                    <tr>
+                                        <th className="border-0 py-3 pl-4 text-secondary" style={{ fontSize: '0.75rem', letterSpacing: '0.05em' }}>ITEM NAME</th>
+                                        <th className="border-0 py-3 text-center text-secondary" style={{ fontSize: '0.75rem', letterSpacing: '0.05em' }}>QTY</th>
+                                        <th className="border-0 py-3 text-right pr-4 text-secondary" style={{ fontSize: '0.75rem', letterSpacing: '0.05em' }}>PRICE & TOTAL</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {carts.map((item) => (
-                                        <tr key={item.id}>
-                                            <td>{item.product.name}</td>
-                                            <td className="d-flex align-items-center">
-                                                <button
-                                                    className="btn btn-warning btn-sm"
-                                                    onClick={() =>
-                                                        decrement(item.id)
-                                                    }
-                                                >
-                                                    <i className="fas fa-minus"></i>
-                                                </button>
-                                                <input
-                                                    type="number"
-                                                    className="form-control form-control-sm qty ml-1 mr-1"
-                                                    value={item.quantity}
-                                                    disabled
-                                                />
-                                                <button
-                                                    className="btn btn-success btn-sm"
-                                                    onClick={() =>
-                                                        increment(item.id)
-                                                    }
-                                                >
-                                                    <i className="fas fa-plus "></i>
-                                                </button>
+                                        <tr key={item.id} className="align-middle">
+                                            <td className="pl-4 py-3 align-middle">
+                                                <div className="font-weight-bold mb-0" style={{ color: '#1e293b', fontSize: '0.95rem' }}>
+                                                    {item.product.name}
+                                                </div>
                                             </td>
-                                            <td>
-                                                <button
-                                                    className="btn btn-danger btn-sm mr-3"
-                                                    onClick={() =>
-                                                        destroy(item.id)
-                                                    }
-                                                >
-                                                    <i className="fas fa-trash "></i>
-                                                </button>
+                                            <td className="py-3 align-middle">
+                                                <div className="d-flex align-items-center justify-content-center gap-2">
+                                                    <button
+                                                        className="btn btn-sm p-0 d-flex align-items-center justify-content-center"
+                                                        style={{ width: '28px', height: '28px', backgroundColor: '#f1f5f9', color: '#64748b', borderRadius: '8px' }}
+                                                        onClick={() => decrement(item.id)}
+                                                    >
+                                                        <i className="fas fa-minus fa-xs"></i>
+                                                    </button>
+                                                    
+                                                    <div className="mx-2 font-weight-bold" style={{ width: '30px', textAlign: 'center', color: '#334155' }}>
+                                                        {item.quantity}
+                                                    </div>
+
+                                                    <button
+                                                        className="btn btn-sm p-0 d-flex align-items-center justify-content-center text-white"
+                                                        style={{ width: '28px', height: '28px', backgroundColor: '#0ea5e9', borderRadius: '8px' }}
+                                                        onClick={() => increment(item.id)}
+                                                    >
+                                                        <i className="fas fa-plus fa-xs"></i>
+                                                    </button>
+
+                                                    <button
+                                                        className="btn btn-sm p-0 ml-3 text-danger d-flex align-items-center justify-content-center hover-opacity-7"
+                                                        style={{ width: '28px', height: '28px', background: 'transparent' }}
+                                                        onClick={() => destroy(item.id)}
+                                                    >
+                                                        <i className="fas fa-trash-alt fa-sm"></i>
+                                                    </button>
+                                                </div>
                                             </td>
-                                            <td className="text-right">
-                                                {item?.product?.discounted_price}
-                                                {item?.product?.price >
-                                                item?.product
-                                                    ?.discounted_price ? (
-                                                    <>
-                                                        <br />
-                                                        <del>
-                                                            {item?.product?.price}
-                                                        </del>
-                                                    </>
-                                                ) : (
-                                                    ""
-                                                )}
-                                            </td>
-                                            <td className="text-right">
-                                                {item?.row_total}
+                                            <td className="text-right pr-4 py-3 align-middle">
+                                                <div className="font-weight-bold" style={{ color: '#0ea5e9', fontSize: '1rem' }}>
+                                                    {item?.row_total}
+                                                </div>
+                                                <div className="text-muted" style={{ fontSize: '0.8rem' }}>
+                                                    {item?.product?.discounted_price} x {item.quantity}
+                                                </div>
                                             </td>
                                         </tr>
                                     ))}

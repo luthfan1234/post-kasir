@@ -934,3 +934,65 @@ label:not(.form-check-label):not(.custom-file-label) {
     font-weight: 600 !important;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
 }
+/* =========================================
+   SweetAlert2 Modern SaaS Customization
+   ========================================= */
+.swal2-popup.modern-swal-popup {
+    border-radius: 20px !important;
+    padding: 2rem !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1) !important;
+}
+
+.swal2-title.modern-swal-title {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+    padding-top: 1rem !important;
+}
+
+.swal2-html-container.modern-swal-content {
+    font-size: 0.95rem !important;
+    color: #64748b !important;
+}
+
+.swal2-actions {
+    margin-top: 1.5rem !important;
+    gap: 12px !important;
+}
+
+.swal2-styled.swal2-confirm {
+    border-radius: 10px !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    transition: all 0.2s !important;
+}
+
+.swal2-styled.swal2-cancel {
+    border-radius: 10px !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    background-color: #f1f5f9 !important;
+    color: #475569 !important;
+    transition: all 0.2s !important;
+}
+
+.swal2-icon {
+    border-width: 3px !important;
+}
+
+.swal2-icon.swal2-warning {
+    border-color: #f59e0b !important;
+    color: #f59e0b !important;
+}
+
+.swal2-icon.swal2-info {
+    border-color: #0ea5e9 !important;
+    color: #0ea5e9 !important;
+}
+
+.swal2-icon.swal2-question {
+    border-color: #8b5cf6 !important;
+    color: #8b5cf6 !important;
+}
