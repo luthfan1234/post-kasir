@@ -19,22 +19,6 @@ i, .fas, .far, .fab, .fa {
     font-weight: 900 !important;
 }
 
-/* Global Non-Scroll Aesthetic */
-body, .wrapper, .content-wrapper, .main-sidebar, .main-header, .content, .container-fluid {
-    overflow-x: hidden !important;
-}
-
-/* Hide Scrollbar Track but Keep Scroll Functionality */
-::-webkit-scrollbar {
-    width: 0 !important;
-    height: 0 !important;
-    display: none !important;
-}
-* {
-    scrollbar-width: none !important; /* Firefox */
-    -ms-overflow-style: none !important; /* IE/Edge */
-}
-
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -185,40 +169,6 @@ body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-foot
     color: #64748b !important;
 }
 
-/* Dropdowns Ultra-Minimalist */
-.nav-item.dropdown {
-    position: relative !important;
-}
-
-.dropdown-menu {
-    border-radius: 8px !important;
-    border: 1px solid #f1f5f9 !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
-    padding: 6px 0 !important;
-    z-index: 1050 !important;
-    min-width: 160px !important;
-    background-color: #ffffff !important;
-}
-
-.dropdown-item {
-    font-size: 0.85rem !important;
-    color: #475569 !important;
-    font-weight: 500 !important;
-    padding: 10px 20px !important;
-    transition: all 0.2s ease;
-}
-
-.dropdown-divider {
-    border-top: 1px solid #f1f5f9 !important;
-    margin: 6px 0 !important;
-}
-.dropdown-item:hover {
-    background-color: #f8fafc !important;
-    color: #0ea5e9 !important;
-}
-.dropdown-divider {
-    border-top: 1px solid #f1f5f9 !important;
-}
 .font-weight-600 { font-weight: 600 !important; }
 
 /* Content Header */

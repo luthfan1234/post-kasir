@@ -56,14 +56,15 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="fas fa-user-circle mr-1"></i> {{ auth()->user()->name ?? 'Account' }} <i class="fas fa-caret-down ml-1"></i>
+                <i class="fas fa-user-circle"></i>
+                <i class="fas fa-angle-down"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="{{ route('backend.admin.profile') }}" class="dropdown-item py-2">
+                <a href="{{ route('backend.admin.profile') }}" class="dropdown-item">
                     Profile
                 </a>
-                <div class="dropdown-divider m-0" style="opacity: 0.5;"></div>
-                <a href="#" class="dropdown-item py-2 text-danger" data-toggle="modal" data-target="#logoutModal">
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item text-danger" data-toggle="modal" data-target="#logoutModal">
                     Logout
                 </a>
             </div>
