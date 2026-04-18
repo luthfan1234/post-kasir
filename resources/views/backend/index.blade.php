@@ -143,31 +143,39 @@
 
 
         <div class="row">
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Daily Total Sales <small>{{ $dateRange }}</small></h5>
-                        <div class="input-group w-auto">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                    <i class="far fa-calendar-alt"></i>
-                                </span>
+            <div class="col-12 col-xl-6">
+                <div class="card chart-card">
+                    <div class="card-header dashboard-card-header">
+                        <div class="header-info">
+                            <h5 class="mb-0">Daily Total Sales</h5>
+                            <span class="text-xs text-muted">{{ $dateRange }}</span>
+                        </div>
+                        <div class="header-actions">
+                            <div class="input-group dashboard-date-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text bg-transparent border-right-0">
+                                        <i class="far fa-calendar-alt text-primary"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control border-left-0" id="reservation" placeholder="Filter by Date">
                             </div>
-                            <input type="text" class="form-control" id="reservation" style="width: 180px;">
                         </div>
                     </div>
 
-                    <div class="card-body">
+                    <div class="card-body chart-container">
                         <canvas id="dailySaleLineChart"></canvas>
                     </div>
                 </div>
             </div>
-            <div class="col-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Monthly Total Sales <small>for {{ $currentYear }}</small></h5>
+            <div class="col-12 col-xl-6">
+                <div class="card chart-card">
+                    <div class="card-header dashboard-card-header">
+                        <div class="header-info">
+                            <h5 class="mb-0">Monthly Total Sales</h5>
+                            <span class="text-xs text-muted">for {{ $currentYear }}</span>
+                        </div>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body chart-container">
                         <canvas id="barChartYear"></canvas>
                     </div>
                 </div>
@@ -181,9 +189,13 @@
 @push('script')
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+    Chart.defaults.font.family = "'Inter', sans-serif";
+    Chart.defaults.color = '#64748b';
+
     const dailySaleChart = document.getElementById('dailySaleLineChart');
     const barChartYear = document.getElementById('barChartYear');
 
+    // Daily Sales - Area Chart Style
     new Chart(dailySaleChart, {
         type: 'line',
         data: {
@@ -191,18 +203,38 @@
             datasets: [{
                 label: 'Sales',
                 data: @json($totalAmounts),
-                borderWidth: 1
+                fill: true,
+                backgroundColor: 'rgba(14, 165, 233, 0.1)',
+                borderColor: '#0ea5e9',
+                borderWidth: 3,
+                tension: 0.4, // Smooth curved line
+                pointBackgroundColor: '#ffffff',
+                pointBorderColor: '#0ea5e9',
+                pointBorderWidth: 2,
+                pointRadius: 4,
+                pointHoverRadius: 6
             }]
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    grid: { borderDash: [5, 5], color: '#f1f5f9' },
+                    ticks: { callback: value => 'Rp ' + value.toLocaleString() }
+                },
+                x: {
+                    grid: { display: false }
                 }
             }
         }
     });
 
+    // Monthly Sales - Rounded Bar Chart
     new Chart(barChartYear, {
         type: 'bar',
         data: {
@@ -210,13 +242,25 @@
             datasets: [{
                 label: 'Sales',
                 data: @json($totalAmountMonth),
-                borderWidth: 1
+                backgroundColor: '#0ea5e9',
+                borderRadius: 6, // Rounded bars
+                barThickness: 20
             }]
         },
         options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    grid: { borderDash: [5, 5], color: '#f1f5f9' },
+                    ticks: { callback: value => 'Rp ' + value.toLocaleString() }
+                },
+                x: {
+                    grid: { display: false }
                 }
             }
         }

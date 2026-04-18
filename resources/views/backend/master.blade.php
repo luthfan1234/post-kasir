@@ -17,9 +17,9 @@
     <link href="{{ assetImage(readconfig('favicon_icon_apple')) }}" rel="apple-touch-icon" sizes="114x114">
     <link href="{{ assetImage(readconfig('favicon_icon_apple')) }}" rel="apple-touch-icon" sizes="144x144">
 
-    <!-- Google Font: Source Sans Pro -->
+    <!-- Google Font: Inter -->
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Ionicons -->
@@ -49,6 +49,8 @@
     <link rel="stylesheet" href="{{ asset('assets/css/datatable/buttons.dataTables.min.css') }}">
     {{-- custom style --}}
     <link rel="stylesheet" href="{{ asset('css/custom-style.css') }}">
+    <!-- Modernizing Theme Override -->
+    <link rel="stylesheet" href="{{ asset('css/modern-theme.css?v=') . time() }}">
 
     <style>
         .image-upload-container {
@@ -221,6 +223,23 @@
     <script src="{{ asset('assets/js/datatable/dataTables.buttons.min.js') }}"></script>
 
     @stack('script')
+
+    <!-- Logout Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 16px;">
+                <div class="modal-body text-center p-4">
+                    <i class="fas fa-sign-out-alt text-danger mb-3" style="font-size: 2rem;"></i>
+                    <h5 class="font-weight-bold mb-2">Ready to Leave?</h5>
+                    <p class="text-muted text-sm mb-4">Click "Logout" below if you are ready to end your current session.</p>
+                    <div class="d-flex justify-content-center gap-2" style="gap: 12px;">
+                        <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Cancel</button>
+                        <a href="{{ route('logout') }}" class="btn btn-danger px-4">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

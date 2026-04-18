@@ -342,14 +342,12 @@ $route = request()->route()->getName();
                     'permission_view',
                     ]))
                     <li class="nav-item">
-                        <a href="#" class="nav-link d-flex justify-content-between align-items-center">
-                            <span>
-                                <i class="fas fa-chevron-circle-right nav-icon"></i>
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-chevron-circle-right nav-icon"></i>
+                            <p>
                                 Roles & Permissions
-                            </span>
-                            <span class="d-flex justify-content-between align-items-center">
                                 <i class="fas fa-angle-left right"></i>
-                            </span>
+                            </p>
                         </a>
                         <ul class="nav nav-treeview">
                             @can('role_view')

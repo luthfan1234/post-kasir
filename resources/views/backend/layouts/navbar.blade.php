@@ -18,7 +18,7 @@
         @can('sale_create')
         <li class="nav-item dropdown">
             <a class="nav-link btn bg-gradient-primary text-white" href="{{route('backend.admin.cart.index')}}">
-                <i class="fas fa-cart-plus"> POS</i>
+                <i class="fas fa-cart-plus"></i> <span class="ml-1">POS</span>
             </a>
         </li>
         @endcan
@@ -56,17 +56,14 @@
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="fas fa-user-circle"></i>
-                <i class="fas fa-angle-double-down"></i>
+                <i class="fas fa-user-circle mr-1"></i> {{ auth()->user()->name ?? 'Account' }} <i class="fas fa-caret-down ml-1"></i>
             </a>
-            <div class="dropdown-menu ">
-                <a href="{{ route('backend.admin.profile') }}" class="dropdown-item dropdown-footer">
-                    <i class="fas fa-address-card"></i>
+            <div class="dropdown-menu dropdown-menu-right">
+                <a href="{{ route('backend.admin.profile') }}" class="dropdown-item py-2">
                     Profile
                 </a>
-                <div class="dropdown-divider"></div>
-                <a href="{{ route('logout') }}" class="dropdown-item dropdown-footer">
-                    <i class="fas fa-sign-out-alt"></i>
+                <div class="dropdown-divider m-0" style="opacity: 0.5;"></div>
+                <a href="#" class="dropdown-item py-2 text-danger" data-toggle="modal" data-target="#logoutModal">
                     Logout
                 </a>
             </div>
