@@ -55,17 +55,18 @@
             </a>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-                <i class="fas fa-user-circle"></i>
-                <i class="fas fa-angle-down"></i>
+            <a class="nav-link d-flex align-items-center" data-toggle="dropdown" href="#">
+                <i class="fas fa-user-circle mr-2" style="font-size: 1.1rem; opacity: 0.8;"></i>
+                <span class="font-weight-600 mr-1">{{ auth()->user()->name ?? 'Account' }}</span>
+                <i class="fas fa-caret-down" style="font-size: 0.8rem; opacity: 0.5;"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="{{ route('backend.admin.profile') }}" class="dropdown-item">
-                    Profile
+                    <i class="fas fa-user-circle"></i> Profile
                 </a>
                 <div class="dropdown-divider"></div>
                 <a href="#" class="dropdown-item text-danger" data-toggle="modal" data-target="#logoutModal">
-                    Logout
+                    <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </div>
         </li>

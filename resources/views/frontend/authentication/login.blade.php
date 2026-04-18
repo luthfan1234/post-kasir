@@ -16,6 +16,77 @@
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap/bootstrap.min.css') }}">
     <!-- APP-CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/style.min.css') }}">
+    
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Ultra Minimalist SaaS Login Aesthetic Override (Keeping Original Layout) */
+        body {
+            font-family: 'Inter', sans-serif !important;
+            -webkit-font-smoothing: antialiased;
+            background-color: #f8fafc !important;
+        }
+
+        .authentication-form-header .form-title { font-size: 1.75rem; font-weight: 700; color: #0f172a; margin-bottom: 0.5rem; }
+        .authentication-form-header .form-des { color: #64748b; font-size: 0.95rem; margin-bottom: 0; }
+
+        .form-label { font-weight: 600; color: #334155; font-size: 0.85rem; margin-bottom: 0.5rem; display: block; }
+        
+        .form-control {
+            border-radius: 12px !important;
+            border: 1px solid #e2e8f0 !important;
+            padding: 0.8rem 1rem !important;
+            background-color: #f8fafc !important;
+            color: #1e293b !important;
+            font-size: 0.95rem !important;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        .form-control:focus {
+            border-color: #0ea5e9 !important;
+            background-color: #ffffff !important;
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1) !important;
+        }
+
+        .create-account-btn {
+            background-color: #0ea5e9 !important; /* Sky Blue */
+            color: #ffffff !important;
+            border: none !important;
+            border-radius: 12px !important;
+            padding: 0.9rem !important;
+            font-weight: 600 !important;
+            font-size: 0.95rem !important;
+            width: 100% !important;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            margin-top: 0.5rem;
+        }
+        .create-account-btn:hover {
+            background-color: #0284c7 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(14, 165, 233, 0.3) !important;
+        }
+
+        .customcheck-label { color: #64748b !important; font-size: 0.85rem !important; }
+        .forget { color: #0ea5e9 !important; font-size: 0.85rem !important; font-weight: 600 !important; text-decoration: none !important; }
+        .forget:hover { color: #0284c7 !important; }
+
+        .authentication-form-footer { margin-top: 2rem; font-size: 0.9rem; color: #64748b; }
+        .authentication-form-footer a { color: #0ea5e9; font-weight: 600; text-decoration: none; }
+        
+        /* Demo Credential Styling */
+        .demo-creds {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+            border: 1px dashed #cbd5e1;
+        }
+        .demo-creds p { margin-bottom: 0.25rem; }
+        .demo-creds p:last-child { margin-bottom: 0; }
+        .demo-creds b { color: #334155; }
+    </style>
 </head>
 
 <body>
@@ -33,9 +104,6 @@
                 novalidate>
                 @csrf
                 <div class="authentication-form-header">
-                    <a href="{{ route('frontend.home') }}" class="logo">
-                        <img src="{{ assetImage(readconfig('site_logo')) }}" width="200px" alt="brand-logo">
-                    </a>
                     <h3 class="form-title">Sign in</h3>
                     <p class="form-des">Welcome back! Sign in to access your account.</p>
                 </div>
@@ -126,9 +194,9 @@
                             <div class="form-group">
                                 <button type="submit" class="create-account-btn w-100">Sign In</button>
                             </div>
-                            <div class="form-group"> <br>
-                            <p><b>User:</b> demo@qtecsolution.net</p>
-                            <p><b>Password:</b> 87654321</p>
+                            <div class="demo-creds">
+                                <p><b>User:</b> demo@qtecsolution.net</p>
+                                <p><b>Password:</b> 87654321</p>
                             </div>
                         </div>
 

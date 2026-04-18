@@ -36,6 +36,11 @@ body:not(.sidebar-mini-md):not(.sidebar-mini-xs):not(.layout-top-nav) .main-foot
     background-color: #ffffff !important;
     box-shadow: none !important;
     border-right: 1px solid #f1f5f9 !important;
+    overflow-x: hidden !important;
+}
+
+.sidebar {
+    overflow-x: hidden !important;
 }
 
 .brand-link {
@@ -435,61 +440,153 @@ label:not(.form-check-label):not(.custom-file-label) {
     color: #64748b !important;
 }
 
-/* Tables & DataTables (Flat & Clean) */
-table.dataTable, .table {
-    border-collapse: collapse !important;
-    width: 100% !important;
+/* Ultra-Modern Table System (SaaS Premium) */
+.card {
+    border-radius: 20px !important;
+    border: 1px solid #f1f5f9 !important;
+    box-shadow: none !important;
     background-color: #ffffff !important;
-}
-.dataTables_wrapper, .table-responsive {
-    overflow-x: hidden !important;
-    padding: 0 !important;
+    overflow: hidden !important;
 }
 
-/* DataTables length menu and Search input unification */
-.dataTables_length select, .dataTables_filter input {
-    border-radius: 6px !important;
-    border: 1px solid #e2e8f0 !important;
-    background-color: #f8fafc !important;
-    padding: 5px 10px !important;
-    outline: none !important;
+.table-responsive {
+    border-radius: 0 0 20px 20px !important;
 }
-.dataTables_length select:focus, .dataTables_filter input:focus {
-    border-color: #0ea5e9 !important;
-    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1) !important;
+
+.table {
+    margin-bottom: 0 !important;
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    width: 100% !important;
 }
-.table th {
-    background-color: #ffffff !important;
-    color: #94a3b8 !important;
-    font-weight: 500 !important;
-    border-bottom: 1px solid #e2e8f0 !important;
-    border-top: none !important;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    letter-spacing: 0.05em;
-    padding: 12px 16px !important;
-}
-.table td {
-    padding: 14px 16px !important;
-    vertical-align: middle !important;
-    border-bottom: 1px solid #f8fafc !important;
-    border-top: none !important;
-    color: #334155 !important;
-}
-.table tbody tr:hover {
-    background-color: #f8fafc !important;
-}
-/* Pagination modern */
-.page-item.active .page-link {
-    background-color: #0ea5e9 !important;
-    border-color: #0ea5e9 !important;
-    border-radius: 6px !important;
-}
-.page-link {
+
+.table thead th {
+    background-color: #f8fafc !important; /* Soft modern tint */
     color: #475569 !important;
-    border-radius: 6px !important;
-    margin: 0 2px;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.1em;
+    padding: 18px 24px !important;
+    border-top: none !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    text-align: left;
+}
+
+.table td {
+    padding: 20px 24px !important;
+    vertical-align: middle !important;
+    border-top: none !important;
+    border-bottom: 1px solid #f8fafc !important;
+    color: #334155 !important;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+/* Specific styling for 'Name/Title' columns */
+.table td:nth-child(2), .table td.font-weight-bold {
+    font-weight: 600 !important;
+    color: #1e293b !important;
+}
+
+.table tbody tr:hover td {
+    background-color: #f0f9ff !important; /* Extremely soft sky blue hover */
+}
+
+/* Column Alignment & Widths */
+.table td:first-child, .table th:first-child { padding-left: 30px !important; }
+.table td:last-child, .table th:last-child { padding-right: 30px !important; }
+
+/* Pagination - Ultra Minimalist (Nuclear Reset) */
+.dataTables_wrapper .dataTables_paginate {
+    padding: 1.5rem 30px !important;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Target DataTables specific classes to kill the black/bordered look */
+.dataTables_wrapper .dataTables_paginate .paginate_button,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.pagination .page-item .page-link {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    color: #64748b !important;
+    font-size: 0.85rem !important;
+    font-weight: 500 !important;
+    margin: 0 2px !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Active State - Soft Sky Blue Pill */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.pagination .page-item.active .page-link {
+    background-color: #f0f9ff !important; /* Soft Blue Tint */
+    color: #0ea5e9 !important;
+    font-weight: 700 !important;
+}
+
+/* Hover State - Extremely Subtle Gray */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover:not(.current):not(.disabled),
+.pagination .page-item:hover:not(.active) .page-link {
+    background-color: #f8fafc !important;
+    color: #0ea5e9 !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    opacity: 0.3 !important;
+    cursor: default !important;
+}
+
+/* Previous/Next Labels - Professional Polish */
+.paginate_button.previous, 
+.paginate_button.next,
+.page-item:first-child .page-link, 
+.page-item:last-child .page-link {
+    font-weight: 600 !important;
+    color: #94a3b8 !important;
+    text-transform: lowercase;
+    font-variant: small-caps;
+    letter-spacing: 0.05em;
+}
+
+.paginate_button.previous:hover, 
+.paginate_button.next:hover {
+    color: #0ea5e9 !important;
+    background: transparent !important;
+}
+
+/* DataTables Global Controls */
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_length {
+    padding: 2rem 30px 1rem !important;
+}
+
+.dataTables_filter input {
+    border-radius: 12px !important;
     border: 1px solid #e2e8f0 !important;
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
+    background-color: #f8fafc !important;
+    width: 280px !important;
+    transition: all 0.2s;
+}
+
+.dataTables_filter input:focus {
+    border-color: #0ea5e9 !important;
+    background-color: #fff !important;
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1) !important;
+    outline: none;
+}
+
+.dataTables_info {
+    font-size: 0.85rem !important;
+    color: #94a3b8 !important;
+    padding: 2rem 30px !important;
 }
 
 /* POS React Styling Overrides */
@@ -617,4 +714,223 @@ table.dataTable, .table {
     border: 1px solid #f1f5f9 !important;
     font-size: 0.85rem !important;
     background-color: #f8fafc !important;
+}
+
+/* =========================================
+   FINAL PREMIUM POLISH (Global UI Unified)
+   ========================================= */
+
+/* Modern Global Glass Loader */
+#global-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 10000; /* Always on top */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#global-loader.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 2024 Minimalist Spinner */
+.modern-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(14, 165, 233, 0.15); /* Soft sky blue border */
+    border-top: 4px solid #0ea5e9; /* Vibrant sky blue */
+    border-radius: 50%;
+    animation: modern-spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes modern-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Dashboard Cards (Modern Flat AdminLTE) */
+.info-box, .small-box {
+    border-radius: 12px !important; /* Modern rounded corners */
+    border: none !important;
+    box-shadow: none !important; /* Completely flat, no shadow */
+    margin-bottom: 24px !important;
+    overflow: hidden;
+    transition: none !important; /* Remove any hover scale effects */
+}
+
+/* Completely remove hover effects */
+.info-box:hover, .small-box:hover, .small-box-footer:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Flat Icon integration */
+.info-box-icon {
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    background: rgba(0,0,0,0.1) !important; /* Soft flat background for icon */
+}
+
+/* Small Box specific flat adjustments */
+.small-box .icon {
+    color: rgba(0,0,0,0.15) !important; /* Flat subtle background icon */
+}
+.small-box-footer {
+    background: rgba(0,0,0,0.05) !important;
+    font-weight: 500 !important;
+    padding: 3px 0 !important;
+}
+
+/* Global Buttons Reset (SaaS Premium) */
+.btn {
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em;
+    padding: 10px 20px !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.btn-primary, .bg-gradient-primary { background: #0ea5e9 !important; color: #fff !important; }
+.btn-success, .bg-gradient-success { background: #0ea5e9 !important; color: #fff !important; } /* Unified brand blue */
+.btn-danger, .bg-gradient-danger { background: #ef4444 !important; color: #fff !important; }
+.btn-warning, .bg-gradient-warning { background: #f59e0b !important; color: #fff !important; }
+
+/* Explicit Hover Overrides */
+.btn-primary:hover, .bg-gradient-primary:hover,
+.btn-success:hover, .bg-gradient-success:hover {
+    background: #0284c7 !important; /* Darker Sky Blue */
+    color: #fff !important;
+}
+
+.btn-danger:hover, .bg-gradient-danger:hover {
+    background: #dc2626 !important;
+    color: #fff !important;
+}
+
+.btn-warning:hover, .bg-gradient-warning:hover {
+    background: #d97706 !important;
+    color: #fff !important;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.25) !important;
+}
+
+/* Badge Refinement (Pill SaaS style) */
+.badge {
+    border-radius: 999px !important;
+    padding: 6px 12px !important;
+    font-weight: 700 !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.02em;
+}
+
+.badge-info { background-color: #e0f2fe !important; color: #0369a1 !important; }
+.badge-success { background-color: #dcfce7 !important; color: #166534 !important; }
+.badge-danger { background-color: #fee2e2 !important; color: #991b1b !important; }
+.badge-warning { background-color: #fef3c7 !important; color: #92400e !important; }
+
+/* Premium Dropdown Menus */
+.dropdown-menu {
+    border-radius: 12px !important;
+    border: 1px solid #f1f5f9 !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
+    padding: 8px !important;
+    min-width: 200px;
+    margin-top: 8px !important;
+}
+
+.dropdown-item {
+    border-radius: 8px !important;
+    padding: 10px 16px !important;
+    font-weight: 500 !important;
+    color: #475569 !important;
+    transition: all 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 2px !important;
+}
+
+.dropdown-item:last-child {
+    margin-bottom: 0 !important;
+}
+
+.dropdown-item i {
+    margin-right: 12px !important;
+    font-size: 1rem !important;
+    color: #94a3b8 !important;
+    transition: color 0.2s ease !important;
+    width: 20px;
+    text-align: center;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f5f9 !important;
+    color: #0ea5e9 !important;
+}
+
+.dropdown-item:hover i {
+    color: #0ea5e9 !important;
+}
+
+.dropdown-item.text-danger:hover,
+.dropdown-menu form .dropdown-item[type="submit"]:hover {
+    background-color: #fee2e2 !important;
+    color: #ef4444 !important;
+}
+
+.dropdown-item.text-danger:hover i,
+.dropdown-menu form .dropdown-item[type="submit"]:hover i {
+    color: #ef4444 !important;
+}
+
+/* Force delete buttons in datatables to appear red to warn users */
+.dropdown-menu form .dropdown-item[type="submit"] {
+    color: #ef4444 !important;
+}
+.dropdown-menu form .dropdown-item[type="submit"] i {
+    color: #ef4444 !important;
+}
+
+.dropdown-divider {
+    border-top-color: #f1f5f9 !important;
+    margin: 6px 0 !important;
+}
+
+/* Modal & Global Components */
+.modal-content {
+    border-radius: 20px !important;
+    border: 1px solid #f1f5f9 !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.modal-header {
+    background-color: #f8fafc !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    padding: 20px 24px !important;
+}
+
+/* DataTables Processing Indicator Polish */
+.dataTables_wrapper .dataTables_processing {
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(4px);
+    border: 1px solid #f1f5f9 !important;
+    border-radius: 12px !important;
+    color: #0ea5e9 !important;
+    font-weight: 600 !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05) !important;
 }

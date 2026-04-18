@@ -112,6 +112,10 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
+    <!-- Modern Global Glass Loader -->
+    <div id="global-loader">
+        <div class="modern-spinner"></div>
+    </div>
 
     <x-simple-alert />
 
@@ -212,8 +216,12 @@
     <script src="{{ asset('dist/js/adminlte.js') }}"></script>
     <!-- Select2 -->
     <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+    
+    <!-- SweetAlert2 (Premium Modals) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     {{-- custom script --}}
-    <script src="{{ asset('js/custom-script.js') }}"></script>
+    <script src="{{ asset('js/custom-script.js?v=') . time() }}"></script>
     <!-- dropzonejs -->
     <script src="{{ asset('plugins/dropzone/min/dropzone.min.js') }}"></script>
 
